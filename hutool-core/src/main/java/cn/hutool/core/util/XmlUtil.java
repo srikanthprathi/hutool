@@ -292,6 +292,9 @@ public class XmlUtil {
 		// 1.获取解析工厂
 		if (null == factory) {
 			factory = SAXParserFactory.newInstance();
+			factory.setFeature("http://xml.org/sax/features/external-general-entities", false);
+			factory.setFeature("http://xml.org/sax/features/external-parameter-entities", false);
+			factory.setFeature("http://apache.org/xml/features/nonvalidating/load-external-dtd", false);
 			factory.setValidating(false);
 			factory.setNamespaceAware(namespaceAware);
 		}
